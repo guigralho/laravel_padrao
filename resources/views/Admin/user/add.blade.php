@@ -42,7 +42,7 @@
                                 <label>Grupo</label>
                                 <select name="user_group_id" class="full-width form-control" data-init-plugin="select2">
                                     @foreach($userGroups as $userGroup)
-                                        <option value="{{ $userGroup->id }}" @if (data_get($user, 'user_group_id', old('user_group_id')) == $userGroup->name) selected @endif>{{ $userGroup->name }}</option>
+                                        <option value="{{ $userGroup->id }}" @if (data_get($user, 'user_group_id', old('user_group_id')) == $userGroup->id) selected @endif>{{ $userGroup->name }}</option>
                                     @endforeach
                                 </select>
                             </div>
