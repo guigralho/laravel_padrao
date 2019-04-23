@@ -67,19 +67,7 @@
                                         </thead>
                                         <tbody>
                                             @foreach($menus as $menu)
-                                                <tr>
-                                                    <td>{{ $menu->name }}</td>
-                                                    <?php
-                                                        $permissionTypeConstant->flip()->each(function($permission) use ($menu, $role) {
-                                                            $namePermission = str_slug("{$menu->name}_{$permission}", '-');
-                                                            echo '<td>
-                                                                    <div class="container-switcher">
-                                                                        <input type="checkbox" data-init-plugin="switchery" data-size="small" '.($role->hasPermissionTo($namePermission) ? "checked" : "").' name="permissoes[]" value="'.$namePermission.'" />
-                                                                    </div>
-                                                                </td>';
-                                                        });
-                                                    ?>
-                                                </tr>
+                                                @include('Admin.user_group.permission_item', compact('menu', 'permissionTypeConstant'))
                                             @endforeach
                                         </tbody>
                                     </table>
