@@ -70,7 +70,7 @@ class UserGroupController extends Controller
     {
     	$userGroup = UserGroup::findOrFail($groupUserId);
 
-        $menus = $menuService->getMenuWithParent();
+        $menus = $menuService->getMenu();
         $role = Role::findByName($userGroup->name);
 
     	if ($request->isMethod('post')) {
